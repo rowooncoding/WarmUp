@@ -7,25 +7,44 @@
 
 import SwiftUI
 
+struct NavigationLinkStyle: Hashable {
+    let title: String
+    let description: String
+}
+
 struct Navigation: View {
     
-    let titles = ["디테일 뷰로 이동하기", "디테일 뷰로 이동하기 2"]
-    let descriptions = ["데스티네이션 입니다.", "데스티네이션 입니다2"]
+    let navigationData: [NavigationLinkStyle] = [
+        NavigationLinkStyle(title: "디테일 뷰로 이동하기", description: "데스티네이션 입니다."),
+        NavigationLinkStyle(title: "디테일 뷰로 이동하기2", description: "데스티네이션 입니다2.")
+    ]
+    
+    // 구조체 사용 안할 때
+//    let titles = ["디테일 뷰로 이동하기", "디테일 뷰로 이동하기 2"]
+//    let descriptions = ["데스티네이션 입니다.", "데스티네이션 입니다2"]
     
     @State var showModal: Bool = false
     
     var body: some View {
         NavigationStack { // 네비게이션을 관리하는 컨테이너
             List { // 네비게이션을 리스트식으로 쌓아준다
-                
-                // 반복문 사용
-                ForEach([0,1], id: \.self) { index in
+  
+                ForEach(navigationData, id: \.self) { data in
                     NavigationLink {
-                        Text(descriptions[index])
+                        Text(data.description)
                     } label: {
-                        Text(titles[index])
+                        Text(data.title)
                     }
                 }
+                
+                // 반복문 사용(구조체 사용안할 때)
+//                ForEach([0,1], id: \.self) { index in
+//                    NavigationLink {
+//                        Text(descriptions[index])
+//                    } label: {
+//                        Text(titles[index])
+//                    }
+//                }
                 
                 
                 // 하드코딩
