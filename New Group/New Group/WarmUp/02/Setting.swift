@@ -19,9 +19,11 @@ struct Setting: View {
     
     let data: [[SettingInfo]] = [
         [SettingInfo(title: "스크린 타임", systemName: "hourglass", backgroundColor: .purple)],
-        [SettingInfo(title: "일반", systemName: "gear", backgroundColor: .gray)],
-        [SettingInfo(title: "손쉬운 사용", systemName: "person.crop.circle", backgroundColor: .blue)],
-        [SettingInfo(title: "개인정보 보호 및 보안", systemName: "hand.raised.fill", backgroundColor: .blue)],
+        [
+            SettingInfo(title: "일반", systemName: "gear", backgroundColor: .gray),
+            SettingInfo(title: "손쉬운 사용", systemName: "person.crop.circle", backgroundColor: .blue),
+            SettingInfo(title: "개인정보 보호 및 보안", systemName: "hand.raised.fill", backgroundColor: .blue)
+        ],
         [SettingInfo(title: "암호", systemName: "key.fill", backgroundColor: .gray)],
     ]
     
